@@ -16,15 +16,15 @@ public class FundDAO extends GenericDAO<FundBean> {
 
 	public void create(FundBean fund) throws RollbackException {
 		FundBean[] Funds = match(MatchArg.and(
-				MatchArg.equals("fund_id", Fund.getFundId()),
-				MatchArg.equals("Fund_date", Fund.getFundDate())));
+				MatchArg.equals("id", fund.getId()),
+				MatchArg.equals("name", fund.getName())));
 		if (Funds.length > 0) {
 			return;
 		}
 		try {
 			Transaction.begin();
 
-			create(Fund);
+			create(fund);
 
 			Transaction.commit();
 		} finally {
@@ -33,10 +33,10 @@ public class FundDAO extends GenericDAO<FundBean> {
 		}
 	}
 
-	public FundBean[] getFund(int fund_id) throws RollbackException {
+	public FundBean[] getFund(int id) throws RollbackException {
 
-		FundBean[] Funds = match(MatchArg.equals("fund_id", fund_id));
-		return Funds;
+		FundBean[] funds = match(MatchArg.equals("id", id));
+		return funds;
 	}
 
 }
