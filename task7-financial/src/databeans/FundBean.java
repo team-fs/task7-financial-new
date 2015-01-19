@@ -1,3 +1,5 @@
+package databeans;
+
 import org.genericdao.PrimaryKey;
 
 @PrimaryKey("id")
