@@ -1,6 +1,7 @@
 package databeans;
+import org.genericdao.PrimaryKey;
 
-//@PrimaryKey("customerId")
+@PrimaryKey("customerId")
 public class CustomerBean {
 	private int customerId;
 	private String username;

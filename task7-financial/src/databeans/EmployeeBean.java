@@ -1,5 +1,7 @@
 package databeans;
-//@PrimaryKey("username")
+import org.genericdao.PrimaryKey;
+
+@PrimaryKey("username")
 public class EmployeeBean {
 	private String username;
 	private String password;
