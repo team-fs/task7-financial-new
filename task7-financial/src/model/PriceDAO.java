@@ -1,8 +1,3 @@
-//Jiayi Zhu
-//jiayiz
-//08-600
-//Dec 10, 2014
-
 package model;
 
 import org.genericdao.ConnectionPool;
