@@ -22,9 +22,4 @@ public class PositionBean {
 	public void setCustomerId(int n){ customer_id = n; }
 	public void setFundId(int n) 	{ fund_id = n; }
 	public void setShares(long l)	{ shares = l;}
-
-	@Override
-	public String toString() {
-		return "Customer(" + customer_id + ") holds" + shares + " shares of fund " + fund_id;
-	}
 }

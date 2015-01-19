@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+
+table, th, td {
+    border: 0px solid black;
+    border-collapse: collapse;
+    background-color: #f1f1c1;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+table#checkConfirm, table#checkConfirm td{
+    text-align: center; 
+    background-color: #ffffff;   
+  	border: 0;          
+}
+
+</style>
+
+<title>Request A Check</title>
+</head>
+<body>
+<div id="checkTable">
+<table style="width:100%" border="1">
+  <caption><h1>Request A Check</h1></caption>
+  <tr>
+    <td>User Name: </td>
+    <td>Testing</td>
+  </tr>
+  <tr>
+    <td>Full Name: </td>
+    <td>Test Account</td>
+  </tr>
+  <tr>
+    <td>Amount (USD$): </td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td>Notes: </td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td>Execute On: </td>
+    <td><input type="date"></td>
+  </tr>
+  <tr>
+  	<td colspan="2"><input type="checkbox" align="center" value="I have read and agreed with the<a href="https://www.google.com/"> Terms of Service of CFS"></td>
+  </tr>
+</table>
+<br>
+<div id="buttons">
+<table border="0" style="width:100%" id="checkConfirm" >
+<tr>
+<td><input type="button" style="width:60%" align="center" value="Cancel"></td>
+<td><input type="button" style="width:60%" align="center" value="Confirm"></td>
+</tr>
+</table>
+</div>
+</div>
+
+</body>
+</html>
