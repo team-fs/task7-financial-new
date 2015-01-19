@@ -1,8 +1,3 @@
-//Jiayi Zhu
-//jiayiz
-//08-600
-//Dec 10, 2014
-
 package model;
 
 import org.genericdao.ConnectionPool;
@@ -20,15 +15,16 @@ public class PriceDAO extends GenericDAO<PriceBean> {
 	}
 
 	public void create(PriceBean price) throws RollbackException {
-		PriceBean[] prices = match(MatchArg.and(MatchArg.equals("fund_id", price.getFundId()),
-				MatchArg.equals("price_date", price.getPriceDate()))) ;
-		if (prices.length>0) {
+		PriceBean[] prices = match(MatchArg.and(
+				MatchArg.equals("fund_id", price.getFundId()),
+				MatchArg.equals("price_date", price.getPriceDate())));
+		if (prices.length > 0) {
 			return;
 		}
 		try {
 			Transaction.begin();
 
-			createAutoIncrement(price);
+			create(price);
 
 			Transaction.commit();
 		} finally {
