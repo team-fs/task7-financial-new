@@ -11,7 +11,7 @@ import databeans.EmployeeBean;
 import databeans.FundBean;
 import databeans.PositionBean;
 import databeans.PriceBean;
-import databeans.TrasactionBean;
+import databeans.TransactionBean;
 
 public class Model {
 	private CustomerDAO customerDAO;
