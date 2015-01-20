@@ -24,7 +24,7 @@ public class FundDAO extends GenericDAO<FundBean> {
 		try {
 			Transaction.begin();
 
-			create(funds);
+			create(Fund);
 
 			Transaction.commit();
 		} finally {
