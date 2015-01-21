@@ -166,7 +166,7 @@
 							Number of Shares:
 						</td>
 						<td>
-							<input type="text"></input>
+							<input type="text" name="shareNumber" value="${form.shareNumber}"></input>
 						</td>
 						
 					</tr>
