@@ -170,7 +170,7 @@
 							Amount
 						</td>
 						<td>
-							<input type="text"></input>
+							<input type="text" name="amount" value="${form.amount}"></input>
 						</td>
 						
 					</tr>
