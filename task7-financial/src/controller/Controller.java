@@ -33,6 +33,7 @@ public class Controller extends HttpServlet {
 
         Action.add(new BuyFundAction(model));
         Action.add(new SellFundAction(model));
+        Action.add(new CusLoginAction(model));
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,7 +70,7 @@ public class Controller extends HttpServlet {
 //        }
         
         if(customer == null) {
-        	return Action.perform("login.do",request);
+        	return Action.perform("cuslogin.do",request);
         }
 
       	// Let the logged in user run his chosen action

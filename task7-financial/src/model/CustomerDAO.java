@@ -4,10 +4,15 @@ import databeans.CustomerBean;
 
 import org.genericdao.*;
 
-public class CustomerDAO extends GenericDAO<CustomerBean>{
+public class CustomerDAO extends GenericDAO<CustomerBean> {
 
 	public CustomerDAO(String tableName, ConnectionPool pool) throws DAOException {
 		super(CustomerBean.class, tableName, pool);
+	}
+	
+	public CustomerBean[] getCustomer() throws RollbackException {
+		CustomerBean[] customer = match();
+		return customer;
 	}
 	
 	public void setPassword(String username, String password) throws RollbackException {

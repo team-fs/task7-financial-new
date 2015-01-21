@@ -42,7 +42,7 @@
 					Mutual Fund
 					 <small>Ready to get started? <!--  <button type="button" class="btn btn-sm btn-danger">Sign Up an Account</button>  --> 
 					<a id="modal-353912" href="#modal-container-353912" role="button" class="btn" data-toggle="modal">Sign In</a>
-			
+			<form method="post" action="cuslogin.do">
 			<div class="modal fade" id="modal-container-353912" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -69,13 +69,13 @@
 				<div class="form-group">
 					 <label for="inputEmail3" class="col-sm-2 control-label"><font size="3" face="Verdana">Username</font></label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control" id="inputEmail3" />
+						<input type="text" class="form-control" id="inputEmail3" name="userName" value="${form.userName}" />
 					</div>
 				</div>
 				<div class="form-group">
 					 <label for="inputPassword3" class="col-sm-2 control-label"><font size="3" face="Verdana">Password</font></label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" id="inputPassword3" />
+						<input type="password" class="form-control" id="inputPassword3"  name="password"/>
 					</div>
 				</div>
 				<div class="form-group">
@@ -118,12 +118,12 @@
 						</div>
 						<div class="modal-footer">
 							 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> -->
-							 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> <button type="button" class="btn btn-primary">Login</button>
+							 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"> <input type="submit" class="btn btn-default" name="button" value="Login"> <!-- <button type="button" class="btn btn-primary">Login</button> -->
 						</div>
 					</div>
 				</div>				
 			</div>
-			
+			</form>
 					</small>
 				</h1>
 				<small>CFS serves the best service for you</small>
