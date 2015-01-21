@@ -23,3 +23,5 @@ public class PositionBean {
 	public void setFundId(int n) 	{ fund_id = n; }
 	public void setShares(long l)	{ shares = l;}
 }
+
+// Do we need to sort the position table?
