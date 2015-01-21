@@ -6,8 +6,8 @@ import org.genericdao.*;
 
 public class CustomerDAO extends GenericDAO<CustomerBean>{
 
-	public CustomerDAO(ConnectionPool cp, String tableName) throws DAOException {
-		super(CustomerBean.class, tableName, cp);
+	public CustomerDAO(String tableName, ConnectionPool pool) throws DAOException {
+		super(CustomerBean.class, tableName, pool);
 	}
 	
 	public void setPassword(String username, String password) throws RollbackException {

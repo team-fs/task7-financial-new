@@ -29,6 +29,10 @@ public class Model {
 			ConnectionPool pool = new ConnectionPool(jdbcDriver, jdbcURL);
 			customerDAO  = new CustomerDAO("customer", pool);
 			employeeDAO = new EmployeeDAO("employee", pool);
+			fundDAO = new FundDAO("fund",pool);
+			positionDAO = new PositionDAO("position",pool);
+			priceDAO = new PriceDAO("price",pool);
+			transactionDAO = new TransactionDAO("transaction",pool);
 			
 			
 		} catch (DAOException e) {
@@ -36,7 +40,11 @@ public class Model {
 		}
 	}
 	
-	public FavoriteDAO getFavoriteDAO() { return favoriteDAO; }
-	public UserDAO  getUserDAO()  { return userDAO;  }
+	public CustomerDAO getCustomerDAO() { return customerDAO; }
+	public EmployeeDAO  getEmployeeDAO()  { return employeeDAO;  }
+	public FundDAO getFundDAO() { return fundDAO;}
+	public PositionDAO getPositionDAO() {return positionDAO;}
+	public PriceDAO getPriceDAO() { return priceDAO;}
+	public TransactionDAO getTransactionDAO() {return transactionDAO; }
 }
 

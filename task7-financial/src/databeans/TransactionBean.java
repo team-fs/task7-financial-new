@@ -54,7 +54,7 @@ public class TransactionBean {
     public void setTransacType (char transactionType) {
     	transaction_type = transactionType;
     }
-    public void amount (long amount) {
+    public void setAmount (long amount) {
     	this.amount= amount;
     }
 }

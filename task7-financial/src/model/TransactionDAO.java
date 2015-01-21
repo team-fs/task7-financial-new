@@ -11,8 +11,8 @@ import databeans.TransactionBean;
 
 public class TransactionDAO extends GenericDAO<TransactionBean>{
 	
-	public TransactionDAO(ConnectionPool cp, String tableName) throws DAOException {
-		super(TransactionBean.class, tableName, cp);
+	public TransactionDAO(String tableName, ConnectionPool pool) throws DAOException {
+		super(TransactionBean.class, tableName, pool);
 	}
 	
 	public TransactionBean[] getTransactions (int customerId) {

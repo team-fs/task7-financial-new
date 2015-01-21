@@ -14,10 +14,10 @@ import org.genericdao.RollbackException;
 import model.CustomerDAO;
 import model.EmployeeDAO;
 import model.FundDAO;
+import model.Model;
 import model.PositionDAO;
 import model.PriceDAO;
 import model.TransactionDAO;
-
 import databeans.CustomerBean;
 import databeans.EmployeeBean;
 import databeans.FundBean;
@@ -30,26 +30,9 @@ public class Controller extends HttpServlet {
 
     public void init() throws ServletException {
         Model model = new Model(getServletConfig());
-        
-        CustomerDAO customerDAO = model.getCustomerDAO();
-        EmployeeDAO employeeDAO = model.getEmployeeDAO();
-        FundDAO fundDAO = model.getFundDAO();
-        PositionDAO positionDAO = model.getPositionDAO();
-        PriceDAO priceDAO = model.getPriceDAO();
-        TransactionDAO transactionDAO = model.getTransactionDAO();
-       
-        Action.add(new ChangePwdAction(model));
-        Action.add(new LoginAction(model));
-        Action.add(new LogoutAction(model));
-        Action.add(new ManageAction(model));
-        Action.add(new CreateCustomerAction(model));
-        Action.add(new CreateEmployeeAction(model));
-        Action.add(new ResearchFundAction(model));
-        Action.add(new ViewHistoryAction(model));
+
         Action.add(new BuyFundAction(model));
         Action.add(new SellFundAction(model));
-        Action.add(new RequestCheckAction(model));
-        Action.add(new DepositCheckAction(model));
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -70,7 +53,9 @@ public class Controller extends HttpServlet {
     private String performTheAction(HttpServletRequest request) {
         HttpSession session     = request.getSession(true);
         String      servletPath = request.getServletPath();
-        User        user = (User) session.getAttribute("user");
+//      User        user = (User) session.getAttribute("user");
+        CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+        EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
         String      action = getActionName(servletPath);
 
         if (action.equals("register.do") || action.equals("login.do")) {
@@ -78,9 +63,13 @@ public class Controller extends HttpServlet {
 			return Action.perform(action,request);
         }
         
-        if (user == null && !action.equals("list.do") && !action.equals("view.do")) {
-        	// If the user hasn't logged in, direct him to the login page
-			return Action.perform("login.do",request);
+//        if (user == null && !action.equals("list.do") && !action.equals("view.do")) {
+//        	// If the user hasn't logged in, direct him to the login page
+//			return Action.perform("login.do",request);
+//        }
+        
+        if(customer == null) {
+        	return Action.perform("login.do",request);
         }
 
       	// Let the logged in user run his chosen action
@@ -105,7 +94,8 @@ public class Controller extends HttpServlet {
     	}
 
     	if (nextPage.endsWith(".jsp")) {
-	   		RequestDispatcher d = request.getRequestDispatcher("WEB-INF/" + nextPage);
+//	   		RequestDispatcher d = request.getRequestDispatcher("WEB-INF/" + nextPage);
+    		RequestDispatcher d = request.getRequestDispatcher(nextPage);
 	   		d.forward(request,response);
 	   		return;
     	}

@@ -6,8 +6,8 @@ import org.genericdao.*;
 
 public class EmployeeDAO extends GenericDAO<EmployeeBean>{
 	
-	public EmployeeDAO(ConnectionPool cp, String tableName) throws DAOException {
-		super(EmployeeBean.class, tableName, cp);
+	public EmployeeDAO(String tableName, ConnectionPool pool) throws DAOException {
+		super(EmployeeBean.class, tableName, pool);
 	}
 	
 	public void setPassword(String username, String password) throws RollbackException {

@@ -120,15 +120,15 @@
   <ul>
  
 		    <h4>Stock Trading</h4>            
-		  	<li>Buy Fund</li>   
-		  	<li>Sell Fund</li> 
-		  	<li>Research Fund</li>
-		  	<li>Request Check</li> 
-		  	<li>Transaction History</li>  
+		  	<li><a href="buyFund.jsp">Buy Fund</a></li>   
+		  	<li><a href="sellFund.jsp">Sell Fund</a></li> 
+		  	<li><a href="research.html">Research Fund</a></li>
+		  	<li><a href="RequestCheck.html">Request Check</a></li> 
+		  	<li><a href="transaction history.html">Transaction History</a></li>  
 		  	<h4>Personal Account</h4> 
-		  	<li>Change Password</li> 
-		  	<li>View Account</li>  
-		  	<li>Logout</li>  
+		  	<li><a href="resetPassword.html">Change Password</a></li> 
+		  	<li><a href="viewAccoutByCus.jsp">View Account</a></li>  
+		  	<li>Logout</li>   
   
   </ul>
   </nav>

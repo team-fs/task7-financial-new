@@ -2,9 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <title>Mutual Fund from CFS</title>
+<link href="productDetail.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+</style>
 <link href="css/style1.css" rel="stylesheet" type="text/css">
 <link href="css/style1.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +34,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						 <div class="modal-header">
-							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> x </button>
+							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 							<h4 class="modal-title" id="myModalLabel">
 								Sign Up
 							</h4>
@@ -140,9 +144,9 @@
 		<div class="col-md-6 column" style="margin-top: 40">
 		
 		<p id="is" align="left"><a href="Home.html" style="padding-left: 350px; margin-top: 20px;">
-	Home </a> &gt; <a href="">Stock Trading Management</a> &gt;Sell Fund
+	Home </a> &gt; <a href="">Stock Trading Management</a> &gt;Buy Fund
 </p>
-<form method="post" action="sellfund.do">
+<form method="post" action="buyfund.do">
             <table class="table">
 				
 				<tbody>
@@ -163,7 +167,7 @@
 					</tr>
 					<tr class="active">
 						<td>
-							Number of Shares:
+							Amount
 						</td>
 						<td>
 							<input type="text"></input>
@@ -190,5 +194,6 @@
 		</div>
 		
 	</div>
+	
 </body>
 </html>
