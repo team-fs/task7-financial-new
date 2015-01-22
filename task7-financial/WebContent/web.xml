@@ -5,44 +5,37 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
 
-    <display-name>Mutual Fund from CFS</display-name>
+    <display-name> Mutual Fund from CFS </display-name>
     <description>
-      Configuration file for the Mutual Fund Website
+      Mutual Fund
     </description>
-    
+
     <servlet>
-        <servlet-name>    fund-controller        </servlet-name>
-        <servlet-class>   controller.Controller   </servlet-class>
+        <servlet-name>  controller-servlet       </servlet-name>
+        <servlet-class>
+        	controller.Controller
+        </servlet-class>
         <init-param>
           <param-name>    jdbcDriverName          </param-name> 
 	      <param-value>   com.mysql.jdbc.Driver   </param-value>
         </init-param>
         <init-param>
           <param-name>    jdbcURL                 </param-name> 
-	      <param-value>   jdbc:mysql:///test    </param-value>
-        </init-param>
-        <init-param>
-          <param-name>    csvDir                  </param-name> 
-	      <param-value>                           </param-value>
+	      <param-value>   jdbc:mysql:///test      </param-value>
         </init-param>
     </servlet>
     
-    <servlet>
-        <servlet-name>   image-servlet            </servlet-name>
-        <servlet-class>  view.ImageServlet        </servlet-class>
-    </servlet>
-
     <servlet-mapping>
-        <servlet-name>   fund-controller         </servlet-name>
-        <url-pattern>    *.do                     </url-pattern>
+        <servlet-name>  controller-servlet        </servlet-name>
+        <url-pattern>   *.do                     </url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>   image-servlet            </servlet-name>
-        <url-pattern>    /image                   </url-pattern>
+        <servlet-name>  controller-servlet        </servlet-name>
+        <url-pattern>   /welcome                    </url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>   buyfund.do                    </welcome-file>
+        <welcome-file>   welcome   </welcome-file>
     </welcome-file-list>
 </web-app>
