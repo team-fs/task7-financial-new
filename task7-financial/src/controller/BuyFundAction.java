@@ -37,13 +37,13 @@ public class BuyFundAction extends Action {
 		request.setAttribute("errors", errors);
 		
 		try {
-			CustomerBean customer = (CustomerBean) request.getSession(false).getAttribute("customer");
+		//	CustomerBean customer = (CustomerBean) request.getSession(false).getAttribute("customer");
 			BuyForm form  = formBeanFactory.create(request);
 			request.setAttribute("form", form);
 			
 			
 			TransactionBean transaction = new TransactionBean();
-			transaction.setCusId(customer.getCustomerId());
+	//		transaction.setCusId(customer.getCustomerId());
 			transaction.setFundId(0); //should obtain from fund table, which is not established so far. So recorded as 0 temporarily here.
 			transaction.setAmount(form.getAmount());
 			transaction.setTransacType('B');
