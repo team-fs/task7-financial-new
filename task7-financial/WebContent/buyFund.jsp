@@ -181,7 +181,7 @@
 						</td>
 						
 						<td>
-							<input type="submit" name="button" value="Submit" />
+							<input type="submit" name="action" value="Submit" />
 						</td>
 						
 					</tr>
