@@ -10,7 +10,6 @@ import org.genericdao.RollbackException;
 import org.genericdao.Transaction;
 
 import databeans.FundBean;
-import databeans.User;
 
 public class FundDAO extends GenericDAO<FundBean> {
 	public FundDAO(String tableName, ConnectionPool cp) throws DAOException {
