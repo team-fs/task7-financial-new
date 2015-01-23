@@ -11,7 +11,7 @@ public class DepositCheckForm extends FormBean {
 	private String fullName;
 	private String amount;
 	private String notes;
-	private String approvedBy;
+	private String executedBy;
 	private String executedOn;
 	private String remarks;
 	
@@ -19,7 +19,7 @@ public class DepositCheckForm extends FormBean {
 	public String getFullName()  	{ return fullName;  	}
 	public String getAmount()  		{ return amount;    	}
 	public String getNotes()  		{ return notes;  		}
-	public String getApprovedBy() 	{ return approvedBy;	}
+	public String getExecutedBy() 	{ return executedBy;	}
 	public String getExecutedOn() 	{ return executedOn;	}
 	public String getRemarks() 		{ return remarks;		}
 
@@ -28,7 +28,7 @@ public class DepositCheckForm extends FormBean {
 	public void setFullName(String s) 	{ fullName  = trimAndConvert(s,"<>\""); 	}
 	public void setAmount(String s)     { amount  = trimAndConvert(s,"<>\"");   	}
 	public void setNotes(String s)  	{ notes  = trimAndConvert(s,"<>\"");   		}
-	public void setApprovedBy(String s)	{ approvedBy = trimAndConvert(s,"<>\"");	}
+	public void setExecutedBy(String s)	{ executedBy = trimAndConvert(s,"<>\"");	}
 	public void setExecutedOn(String s)	{ executedOn = trimAndConvert(s,"<>\"");	}
 	public void setRemarks(String s)	{ remarks = trimAndConvert(s,"<>\"");	}
 	
@@ -48,7 +48,7 @@ public class DepositCheckForm extends FormBean {
 			errors.add("Amount is required");
 		}
 		
-		if (approvedBy == null || approvedBy.length() == 0) {
+		if (executedBy == null || executedBy.length() == 0) {
 			errors.add("Employee name is required");
 		}
 
