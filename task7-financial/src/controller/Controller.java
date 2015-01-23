@@ -34,6 +34,8 @@ public class Controller extends HttpServlet {
         Action.add(new BuyFundAction(model));
         Action.add(new SellFundAction(model));
         Action.add(new CusLoginAction(model));
+        Action.add(new ReqChkAction(model));
+        Action.add(new DepChkAction(model));
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
