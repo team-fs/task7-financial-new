@@ -140,7 +140,7 @@
 					</div>
 					<div id="panel-element-236921" class="panel-collapse collapse">
 						<div class="panel-body">
-							<a  href="#">View Account</a>						
+							<a  href="viewByEmployee.jsp">View Account</a>						
 						</div>
 						<div class="panel-body">
 							<a  href="#">Request Check</a>						
