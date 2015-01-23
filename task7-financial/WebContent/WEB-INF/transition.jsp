@@ -1,6 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
 <meta charset="utf-8">
 <title>Bootstrap 3, from LayoutIt!</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -136,7 +142,7 @@
 									<td>${ item.symbol }</td>
 									<td><input type="text" class="form-control"></td>
 								</tr>
-							<c:forEach var="item" items="${fundList}">
+							</c:forEach>
 							</tbody>
 						</table>
 						<button type="submit" class="btn btn-default">Submit</button>
