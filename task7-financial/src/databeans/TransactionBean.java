@@ -26,13 +26,13 @@ public class TransactionBean {
     public Date getExeDate () {
     	return execute_date;
     }
-    public double getShares () {
+    public long getShares () {
     	return shares;
     }
     public char getTransacType () {
     	return transaction_type;
     }
-    public double getAmount () {
+    public long getAmount () {
     	return amount;
     }
     
