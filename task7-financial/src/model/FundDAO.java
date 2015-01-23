@@ -15,18 +15,16 @@ public class FundDAO extends GenericDAO<FundBean> {
 	public FundDAO(String tableName, ConnectionPool cp) throws DAOException {
 		super(FundBean.class, tableName, cp);
 	}
-
+//Jiayi changed to autoincrement
 	public void create(FundBean Fund) throws RollbackException {
-		FundBean[] funds = match(MatchArg.and(
-				MatchArg.equals("id", Fund.getId()),
-				MatchArg.equals("name", Fund.getName())));
+		FundBean[] funds = match(MatchArg.equals("name", Fund.getName()));
 		if (funds.length > 0) {
 			return;
 		}
 		try {
 			Transaction.begin();
 
-			create(Fund);
+			this.createAutoIncrement(Fund);
 
 			Transaction.commit();
 		} finally {
