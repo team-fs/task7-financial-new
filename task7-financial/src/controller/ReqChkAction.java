@@ -13,10 +13,10 @@ import databeans.CustomerBean;
 import databeans.TransactionBean;
 import model.Model;
 import model.TransactionDAO;
-import formbeans.SellForm;
+import formbeans.RequestCheckForm;
 
 public class ReqChkAction extends Action {
-	private FormBeanFactory<SellForm> formBeanFactory = FormBeanFactory.getInstance(SellForm.class);
+	private FormBeanFactory<RequestCheckForm> formBeanFactory = FormBeanFactory.getInstance(RequestCheckForm.class);
 	private TransactionDAO transactionDAO;
 	
 	public ReqChkAction(Model model) {
@@ -33,14 +33,13 @@ public class ReqChkAction extends Action {
 		
 		try {
 			CustomerBean customer = (CustomerBean) request.getSession(false).getAttribute("customer");
-			SellForm form = formBeanFactory.create(request);
+			RequestCheckForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
 			
 			TransactionBean transaction = new TransactionBean();
 			transaction.setCusId(customer.getCustomerId());
-			transaction.setFundId(0);
-			transaction.setShares(form.getShareNumber());
-			transaction.setTransacType('S');
+			transaction.setAmount(Long.parseLong(form.getAmount()));
+			transaction.setTransacType('R');
 			
 			transactionDAO.create(transaction);
 			
