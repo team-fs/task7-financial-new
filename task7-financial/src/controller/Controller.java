@@ -98,13 +98,13 @@ public class Controller extends HttpServlet {
 	   		d.forward(request,response);
 	   		return;
     	}
-    	
+    	/*
     	if (nextPage.equals("image")) {
 	   		RequestDispatcher d = request.getRequestDispatcher(nextPage);
 	   		d.forward(request,response);
 	   		return;
     	}
-    	
+    	*/
     	throw new ServletException(Controller.class.getName()+".sendToNextPage(\"" + nextPage + "\"): invalid extension.");
     }
 

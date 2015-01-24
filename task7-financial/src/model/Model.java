@@ -6,13 +6,6 @@ import javax.servlet.ServletException;
 import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 
-import databeans.CustomerBean;
-import databeans.EmployeeBean;
-import databeans.FundBean;
-import databeans.PositionBean;
-import databeans.PriceBean;
-import databeans.TransactionBean;
-
 public class Model {
 	private CustomerDAO customerDAO;
 	private EmployeeDAO  employeeDAO;
@@ -31,7 +24,7 @@ public class Model {
 			employeeDAO = new EmployeeDAO("employee", pool);
 			fundDAO = new FundDAO("fund",pool);
 			positionDAO = new PositionDAO("position",pool);
-			priceDAO = new PriceDAO("price",pool);
+			priceDAO = new PriceDAO("price_history",pool);
 			transactionDAO = new TransactionDAO("transaction",pool);
 			
 			
