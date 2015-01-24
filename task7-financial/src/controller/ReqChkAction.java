@@ -13,10 +13,10 @@ import databeans.CustomerBean;
 import databeans.TransactionBean;
 import model.Model;
 import model.TransactionDAO;
-import formbeans.SellForm;
+import formbeans.RequestCheckForm;
 
 public class ReqChkAction extends Action {
-	private FormBeanFactory<SellForm> formBeanFactory = FormBeanFactory.getInstance(SellForm.class);
+	private FormBeanFactory<RequestCheckForm> formBeanFactory = FormBeanFactory.getInstance(RequestCheckForm.class);
 	private TransactionDAO transactionDAO;
 	
 	public ReqChkAction(Model model) {
@@ -32,19 +32,22 @@ public class ReqChkAction extends Action {
 		request.setAttribute("errors", errors);
 		
 		try {
+			
 			CustomerBean customer = (CustomerBean) request.getSession(false).getAttribute("customer");
-			SellForm form = formBeanFactory.create(request);
+			DepositCheckForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
 			
+			errors.addAll(form.getValidationErrors());
+	        if (errors.size() > 0) return "error.jsp";
+			
 			TransactionBean transaction = new TransactionBean();
-			transaction.setCusId(customer.getCustomerId());
-			transaction.setFundId(0);
-			transaction.setShares(form.getShareNumber());
-			transaction.setTransacType('S');
+			transaction.setCusId(customer.getUserId());
+			transaction.setAmount(fixBadChars(Long.parseLong(form.getAmount())));
+			transaction.setTransacType('R');
 			
 			transactionDAO.create(transaction);
 			
-			return "index.jsp";
+			return "index.do";
 		} catch(RollbackException e) {
 			errors.add(e.getMessage());
 			return "index.jsp";
@@ -53,5 +56,31 @@ public class ReqChkAction extends Action {
 			return "index.jsp";
 		}
 	}
+	
+    private String fixBadChars(String s) {
+		if (s == null || s.length() == 0) return s;
+		
+		Pattern p = Pattern.compile("[<>\"&]");
+        Matcher m = p.matcher(s);
+        StringBuffer b = null;
+        while (m.find()) {
+            if (b == null) b = new StringBuffer();
+            switch (s.charAt(m.start())) {
+                case '<':  m.appendReplacement(b,"&lt;");
+                           break;
+                case '>':  m.appendReplacement(b,"&gt;");
+                           break;
+                case '&':  m.appendReplacement(b,"&amp;");
+                		   break;
+                case '"':  m.appendReplacement(b,"&quot;");
+                           break;
+                default:   m.appendReplacement(b,"&#"+((int)s.charAt(m.start()))+';');
+            }
+        }
+        
+        if (b == null) return s;
+        m.appendTail(b);
+        return b.toString();
+    }
 
 }
