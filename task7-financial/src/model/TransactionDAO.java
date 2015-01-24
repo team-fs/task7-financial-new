@@ -32,27 +32,4 @@ public class TransactionDAO extends GenericDAO<TransactionBean>{
 	    }
 	    return null;
 	}
-	
-	public void updateBalance(int id) throws RollbackException{
-		try {
-        	Transaction.begin();
-			TransactionBean transaction = read(id);
-			
-			if (favoriteLink == null) {
-				throw new RollbackException("Transaction : id="+id+" no longer exists");
-			}
-			
-			switch transaction.getTransacType(){
-				case 'B':
-					
-			}
-				
-			transaction.setClick(favoriteLink.getClick()+1);
-			
-			update(favoriteLink);
-			Transaction.commit();
-		} finally {
-			if (Transaction.isActive()) Transaction.rollback();
-		}
-	}
 }

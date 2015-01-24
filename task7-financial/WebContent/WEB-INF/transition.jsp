@@ -121,10 +121,6 @@
 							<div class="col-md-9 column"></div>
 						</div>
 
-
-
-
-
 						<table class="table table-bordered table-hover table-condensed">
 							<thead>
 								<tr>
