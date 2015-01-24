@@ -36,6 +36,7 @@ public class Controller extends HttpServlet {
         Action.add(new CusLoginAction(model));
         Action.add(new ReqChkAction(model));
         Action.add(new DepChkAction(model));
+        Action.add(new ViewByEmployeeAction(model));
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,20 +57,15 @@ public class Controller extends HttpServlet {
     private String performTheAction(HttpServletRequest request) {
         HttpSession session     = request.getSession(true);
         String      servletPath = request.getServletPath();
-//      User        user = (User) session.getAttribute("user");
         CustomerBean customer = (CustomerBean) session.getAttribute("customer");
         EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
         String      action = getActionName(servletPath);
 
+        System.out.println(servletPath);
         if (action.equals("register.do") || action.equals("login.do")) {
         	// Allow these actions without logging in
 			return Action.perform(action,request);
         }
-        
-//        if (user == null && !action.equals("list.do") && !action.equals("view.do")) {
-//        	// If the user hasn't logged in, direct him to the login page
-//			return Action.perform("login.do",request);
-//        }
         
         if(customer == null) {
         	return Action.perform("cuslogin.do",request);
@@ -97,8 +93,8 @@ public class Controller extends HttpServlet {
     	}
 
     	if (nextPage.endsWith(".jsp")) {
-	//   		RequestDispatcher d = request.getRequestDispatcher("WEB-INF/" + nextPage);
-    		RequestDispatcher d = request.getRequestDispatcher(nextPage);
+	        RequestDispatcher d = request.getRequestDispatcher("WEB-INF/" + nextPage);
+    		//RequestDispatcher d = request.getRequestDispatcher(nextPage);
 	   		d.forward(request,response);
 	   		return;
     	}
